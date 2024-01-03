@@ -1,0 +1,35 @@
+{
+  "scripts": {
+    "start:app": "ts-node main.ts",
+    "start:cron": "ts-node-dev cron.ts",
+    "dev:app": "ts-node-dev main.ts",
+    "dev:cron": "ts-node-dev cron.ts",
+    "start": "concurrently \"npm run start:cron\" \"npm run start:app\"",
+    "dev": "concurrently \"npm run dev:cron\" \"npm run dev:app\"",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "@clerk/clerk-sdk-node": "^4.13.4",
+    "@prisma/client": "^5.7.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mercadopago": "^2.0.6",
+    "node-cron": "^3.0.3",
+    "npm": "^10.2.5",
+    "prisma": "^5.7.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/node-cron": "^3.0.11",
+    "commitizen": "^4.3.0",
+    "concurrently": "^8.2.2"
+  }
+}
