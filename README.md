@@ -1,12 +1,11 @@
 # Projeto Node para Integração OAuth - Mercado Pago Split de Pagamento
 
-Este projeto Node.js tem como objetivo facilitar a integração do OAuth para split de pagamento do Mercado Pago. Utiliza o Prisma como banco de dados e o Clerk para gerenciar usuários. O sistema possui duas rotas principais: `/v1/connect` para gerar uma URL de autorização e `/v1/webhook` para receber os webhooks do Mercado Pago. Além disso, conta com um cron job para realizar o refresh dos tokens a cada 1º dia do mês.
+Este projeto Node.js tem como objetivo facilitar a integração do OAuth para split de pagamento do Mercado Pago. Utiliza o Prisma como banco de dado. O sistema possui duas rotas principais: `/v1/connect/userId` para gerar uma URL de autorização e `/v1/webhook` para receber os webhooks do Mercado Pago. Além disso, conta com um cron job para realizar o refresh dos tokens a cada 1º dia do mês.
 
 ## Requisitos
 
 - Node.js
 - Prisma
-- Clerk
 - SQLite (Atualmente configurado)
 
 ## Configuração
@@ -18,13 +17,13 @@ Este projeto Node.js tem como objetivo facilitar a integração do OAuth para sp
 
 ## Uso
 
-### Rota `/v1/connect`
+### Rota `/v1/connect/{userId}`
 
-Esta rota é responsável por gerar a URL de conexão OAuth para o Mercado Pago. Os usuários devem acessar essa URL para autorizar o acesso passando o authorization code vindo do clerk js.
+Esta rota é responsável por gerar a URL de conexão OAuth para o Mercado Pago. Lembre-se de passar um id unico para seu úsuario.
 
 Exemplo de uso:
 ```bash
-curl -X GET http://localhost:3000/v1/connect
+curl -X GET http://localhost:3000/v1/connect/12312398721983712
 ```
 
 ### Rota /v1/webhook
